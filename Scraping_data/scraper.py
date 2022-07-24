@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 from selenium.webdriver import ChromeOptions
-from selenium.webdriver.support.ui import WebDriverWait
+
 import csv
 import numpy as np
 import re
