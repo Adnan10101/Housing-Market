@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>Housing Market</h1>
+
+<form method="POST" action="/about/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit" />
+
+</form>
+<h1 style="color:red">Estimated Price: {%if predicted %} {{predicted}} Lakh {% else %} None {% endif %}</h1>
+
+
+
+
+<a href="/">Reset details</a>
+{% endblock %}
