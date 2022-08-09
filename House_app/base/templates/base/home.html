@@ -3,7 +3,8 @@
 {% block content %}
 <h1>Housing Market</h1>
 
-<form method="POST" action="/about/">
+
+<form method="POST" action="/prediction/">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Submit" />
@@ -15,4 +16,6 @@
 
 
 <a href="/">Reset details</a>
+<a href="/login_page">User page</a>
+<a href="/logout_page">Logout</a>
 {% endblock %}

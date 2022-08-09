@@ -1,5 +1,7 @@
 from django import forms
 import json
+from .models import UserModel
+from django.forms import ModelForm
 
 
 def get_locIndex():
@@ -25,3 +27,9 @@ class attributesForm(forms.Form):
     bath = forms.IntegerField()
     status = forms.ChoiceField(widget = forms.RadioSelect,choices = display_choice)
     builder = forms.ChoiceField(choices = [(i,i) for i in build_index])
+
+
+class userForm(ModelForm):
+    class Meta:
+        model = UserModel
+        fields = "__all__"
