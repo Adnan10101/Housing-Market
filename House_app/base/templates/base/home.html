@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Housing Market</h1>
-
+{{user.username}}
 
 <form method="POST" action="/prediction/">
     {% csrf_token %}
@@ -16,6 +16,6 @@
 
 
 <a href="/">Reset details</a>
-<a href="/login_page">User page</a>
-<a href="/logout_page">Logout</a>
+
+
 {% endblock %}

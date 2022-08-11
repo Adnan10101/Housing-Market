@@ -1,10 +1,10 @@
-from copyreg import pickle
 from django.shortcuts import render,redirect
-
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from .forms import attributesForm,userForm
+from .models import UserModel
 import pickle
 import numpy as np
 import json
@@ -32,42 +32,54 @@ def get_columns():
 
 
 
-def loginPage(request):
-    user_form = userForm()
+def login_page(request):
+    page = "login"
+    
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        email = request.POST.get("email")
-        phone_ = request.POST.get("phone_no")
+        email_ = request.POST.get("email")
+        password_ = request.POST.get("password")
+        print(email_)
 
         #print("email : ",phone_)
 
         try:
-            user = userForm.objects.get(username = username)
+            user_ = UserModel.objects.get(email = email_)
+            
         except:
             messages.error(request,"User does not exist")
 
-        user = authenticate(request,username = username,password = password)
-
+        user = authenticate(request,email = email_,password = password_)
+        #print(user_)
+        
+       
         if user is not None:
             login(request,user)
             return redirect('/')
+        else:
+            messages.error(request,"Wrong email or password!")
         
+        print("DONE")
 
     context = {
-        "user_form":user_form
-    
+        
+        "page":page
     }
-    return render(request,"base/user_page.html",context)
+    return render(request,"base/register_login.html",context)
 
-def logoutPage(request):
+def logout_page(request):
     logout(request)
-    
     return redirect("/")
+    
 
-def register(request):
-    context = {}
-    return render(request,"base/register_page.html",context)
+def register_page(request):
+    page = "register"
+    user_form = userForm()
+
+    context = {
+        "page":page,
+        "user_form":user_form,
+    }
+    return render(request,"base/register_login.html",context)
 
 
 def home(request):

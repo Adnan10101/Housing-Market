@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("base.urls")),
     path('prediction/',include("base.urls")),
-    path('login_page/',include("base.urls")),
-    path("logout_page/",include("base.urls")),
-    path("register_page/",include("base.urls")),
+    path('register/',include("base.urls")),
+    path("login/",include("base.urls")),
+    path('logout/',include("base.urls")),
 ]
