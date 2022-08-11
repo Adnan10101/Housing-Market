@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1><b>User profile</b></h1>
+<br>
+<div>
+    <h4>
+        <p>Name : {{user.username}}</p>
+    </h4>
+    <h4>
+        <p>Email : {{user.email}}</p>
+    </h4>
+    <h4>
+        <p>Phone no : {{user.phone_no}}</p>
+    </h4>
+    <h4>
+        <p>Joined on : {{user.created}}</p>
+    </h4>
+</div>
+{% endblock %}

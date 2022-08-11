@@ -2,7 +2,8 @@
 
 {% block content %}
 <h1>Housing Market</h1>
-{{user.username}}
+<h4>Signed in as {{user.username}}</h4>
+<br>
 
 <form method="POST" action="/prediction/">
     {% csrf_token %}
@@ -10,10 +11,8 @@
     <input type="submit" value="Submit" />
 
 </form>
+<br>
 <h1 style="color:red">Estimated Price: {%if predicted %} {{predicted}} Lakh {% else %} None {% endif %}</h1>
-
-
-
 
 <a href="/">Reset details</a>
 

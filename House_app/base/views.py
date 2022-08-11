@@ -73,13 +73,36 @@ def logout_page(request):
 
 def register_page(request):
     page = "register"
-    user_form = userForm()
+    form = userForm()
+
+    if request.method == "POST":
+        form = userForm(request.POST)
+        username_ = request.POST.get("username")
+        password_ = request.POST.get("password")
+        email_ = request.POST.get("email")
+        phone_no_ = request.POST.get("phone_no")
+
+        if form.is_valid():
+            user = form.save(commit = False)
+            user.save()
+            login(request,user)
+
+            return redirect("/")
+        else:
+            messages.error(request,"An error has occured")
+        
+
+
 
     context = {
         "page":page,
-        "user_form":user_form,
+        "user_form":form,
     }
     return render(request,"base/register_login.html",context)
+
+def profile(request):
+    context = {}
+    return render(request,"base/profile.html",context)
 
 
 def home(request):

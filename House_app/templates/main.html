@@ -11,7 +11,7 @@
 <body>
     {% include "nav.html" %}
     {% if messages %}
-    <ul class="messages">
+    <ul class="messages" style="color:red">
         {% for message in messages %}
         <li>{{ message }}</li>
         {% endfor %}

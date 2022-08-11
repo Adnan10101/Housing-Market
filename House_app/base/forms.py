@@ -32,4 +32,4 @@ class attributesForm(forms.Form):
 class userForm(ModelForm):
     class Meta:
         model = UserModel
-        fields = "__all__"
+        fields = ['username','password','email','phone_no']

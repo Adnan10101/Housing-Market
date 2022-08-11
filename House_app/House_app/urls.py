@@ -23,4 +23,5 @@ urlpatterns = [
     path('register/',include("base.urls")),
     path("login/",include("base.urls")),
     path('logout/',include("base.urls")),
+    path("profile/",include("base.urls")),
 ]
