@@ -5,13 +5,13 @@ from django.forms import ModelForm
 
 
 def get_locIndex():
-    with open("./base/columns/location.json","r") as file:
+    with open(r"./House_app/base/columns/location.json","r") as file:
         location_list = json.load(file)
     
     return location_list
 
 def get_builderIndex():
-    with open("./base/columns/builder.json","r") as file:
+    with open(r"./House_app/base/columns/builder.json","r") as file:
         builder_list = json.load(file)
     
     return builder_list

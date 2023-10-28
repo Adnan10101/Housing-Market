@@ -13,10 +13,10 @@ import json
 
 
 def get_model():
-    with open("./pkl_files/model.pkl",'rb') as file:
+    with open("./House_app/pkl_files/model.pkl",'rb') as file:
         model = pickle.load(file)
     
-    with open("./pkl_files/scaler.pkl","rb") as file:
+    with open("./House_app/pkl_files/scaler.pkl","rb") as file:
         scale = pickle.load(file)
     
     return model,scale
@@ -24,7 +24,7 @@ def get_model():
 
 
 def get_columns():
-    with open("./base/columns/columns.json","r") as file:
+    with open("./House_app/base/columns/columns.json","r") as file:
         columns = json.load(file)
     
     return columns
